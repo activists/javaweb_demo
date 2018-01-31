@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>modify</title>
+</head>
+<body>
+<form th:action="@{/verify}" th:object="${message}"  >
+    <table>
+        <!--<script th:inline="javascript">-->
+            <!--${message.username}=-->
+        <!--</script>-->
+        <tr>
+            <td><label>Username:</label></td>
+            <td><p th:text="${username1}" ></p></td>
+        </tr>
+        <tr>
+            <td><label>newPassword:</label></td>
+            <td><label for="newPassword1"></label><input  id="newPassword1" type="password" name="content1" th:field="*{newPassword1}"/><br/></td>
+        </tr>
+        <tr>
+            <td><label>newPassword(repeat):</label></td>
+            <td><label for="newPassword2"></label><input id="newPassword2" type="password" name="content2" th:field="*{newPassword2}"/><br/></td>
+        </tr>
+    </table>
+    <input type="submit" value="commit"/>
+</form>
+<!--<script th:inline="javascript">-->
+    <!--function submit(form) {-->
+        <!--var text1=document.getElementById("newPassword1").value;-->
+        <!--var text2=document.getElementById("newPassword2").value;-->
+        <!--var newText1= encodeStr(text1);-->
+        <!--var newText2= encodeStr(text2);-->
+        <!--form.content1.value=newText1;-->
+        <!--form.content2.value=newText2;-->
+        <!--document.myform.submit();-->
+    <!--}-->
+    <!--function encodeStr(input) { // 字符串编码-->
+        <!--var str_val = input;-->
+        <!--if (str_val === '')-->
+        <!--{-->
+            <!--alert("Please Enter string to encode");-->
+        <!--} else {-->
+            <!--var enc = window.btoa(str_val);-->
+            <!--return enc;-->
+        <!--}-->
+    <!--}-->
+    <!--function decodeStr(input) { // 字符串解码-->
+        <!--var str_val = input;-->
+        <!--if (str_val === '')-->
+        <!--{-->
+            <!--alert("Please Enter string to Decode");-->
+        <!--} else {-->
+            <!--var dec = window.atob(str_val);-->
+            <!--return dec;-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
+
+</body>
+</html>

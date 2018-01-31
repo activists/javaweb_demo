@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>user Information</title>
+</head>
+<body>
+    <label>Username:</label>
+    <p th:text="${username}" ></p>
+    <label>Money:</label>
+    <p th:text="${money}" ></p>
+    <form th:action="@{/modify}" th:method="post">
+        <input type="submit" value="modify password"/>
+    </form >
+    <form th:action="@{/transfer}" th:method="post">
+        <input type="submit" value="transfer money"/>
+    </form>
+
+    <form th:action="@{/logout}">
+        <input type="submit" value="sign out"/>
+    </form>
+</body>
+</html>

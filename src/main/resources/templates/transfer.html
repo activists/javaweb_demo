@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Transfer Account</title>
+</head>
+<body>
+<form th:action="@{/transfer}" th:object="${user}"  >
+    <table>
+        <!--<script th:inline="javascript">-->
+        <!--${message.username}=-->
+        <!--</script>-->
+        <tr>
+            <td><label>Transfer to whoever:</label></td>
+            <td><label for="whoever"></label><input  id="whoever" type="text" name="whoever" th:field="*{username}"/><br/></td>
+        </tr>
+        <tr>
+            <td><label>Transfer amount:</label></td>
+            <td><label for="money"></label><input  id="money" type="text" name="money" th:field="*{money}"/><br/></td>
+        </tr>
+    </table>
+    <input type="submit" value="commit"/>
+</form>
+<p th:text="${result}" ></p>
+</body>
+</html>
