@@ -1,20 +1,20 @@
-package com.ipinyou.demo;
+package com.fengfw.land.controller;
 
 
+import com.fengfw.land.model.Message;
+import com.fengfw.land.model.User;
+import com.fengfw.land.service.UserJDBC;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.Map;
 
 
 @Controller
 public class MyController {
 
+//    private Session session=null;
     private User tmp_user=new User();
 
 
@@ -70,7 +70,7 @@ public class MyController {
     }
 
     @RequestMapping(value="/modify")
-    public String modify(@ModelAttribute(value="message") Message message,Model model,HttpServletRequest request){
+    public String modify(@ModelAttribute(value="message") Message message, Model model, HttpServletRequest request){
         if(request.isRequestedSessionIdFromCookie()&&request.isRequestedSessionIdValid()){
             model.addAttribute("username1",tmp_user.getUsername());
             return "modify";

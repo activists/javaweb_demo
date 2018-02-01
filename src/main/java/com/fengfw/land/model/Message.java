@@ -1,4 +1,4 @@
-package com.ipinyou.demo;
+package com.fengfw.land.model;
 
 public class Message {
     private String username;

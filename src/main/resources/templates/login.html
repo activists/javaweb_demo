@@ -5,7 +5,7 @@
         <meta charset="UTF-8"/>
         <title>user login</title>
     </head>
-    <body>
+    <body th:align="center">
         <div th:if="${param.error}">
             Invalid username and password.
         </div>
@@ -13,7 +13,7 @@
             You have been logged out.
         </div>
         <form th:action="@{/userInfo}"  method="post">
-            <table>
+            <table th:align="center">
                 <tr>
                     <td><label>username:</label></td>
                     <td><label><input type="text" name="username"/></label><br/></td>
@@ -22,7 +22,7 @@
                     <td><label>password:</label></td>
                     <td><label><input type="password" name="password"/></label><br/></td>
                 </tr>
-                <tr></tr>
+                <tr><div></div></tr>
                 <tr></tr>
             </table>
             <input type="submit" value="login"/>

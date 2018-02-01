@@ -1,4 +1,4 @@
-package com.ipinyou.demo;
+package com.fengfw.land.sys_security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

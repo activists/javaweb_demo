@@ -1,4 +1,4 @@
-package com.ipinyou.demo;
+package com.fengfw.land.service;
 
 import java.sql.*;
 
