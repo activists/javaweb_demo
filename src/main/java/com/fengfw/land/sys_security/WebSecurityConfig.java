@@ -12,11 +12,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/","/modify", "/userInfo","/verify","/transfer").permitAll()
-                .anyRequest().authenticated()
+        http.authorizeRequests()  //配置安全策略
+                .antMatchers("/").permitAll()  //定义/请求不需要验证
+                .anyRequest().authenticated()  //其余的所有请求都需要验证
                 .and().formLogin().loginPage("/login").permitAll()
-                .and().logout().permitAll()
+                .and().logout().permitAll()   //定义logout不需要验证
+                .and().httpBasic()
                 .and().csrf().disable();
     }
 
