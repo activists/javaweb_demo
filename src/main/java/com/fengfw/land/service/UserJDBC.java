@@ -22,7 +22,7 @@ public class UserJDBC {
 //        UserJDBC userJDBC=new UserJDBC();
 //        boolean verfy=userJDBC.getVerfy("ffw1","123456");
 //        int money=userJDBC.getMoney("ffw1","123456");
-//        System.out.println("money:"+money);
+//        System.out.println("password:"+userJDBC.getPassword("ffw1"));
 //
 //    }
 
@@ -144,6 +144,51 @@ public class UserJDBC {
             }
         }
         return money;
+    }
+
+    public String getPassword(String username) {
+        String password="";
+        try {
+            connection = DriverManager.getConnection(url);
+            preparedStatement = connection.prepareStatement("select password from test.user where username=?");
+            preparedStatement.setString(1, username);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                password=resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                if (preparedStatement != null) {
+                    try {
+                        preparedStatement.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return password;
     }
 
     public boolean transferMoney(String username,String password,int money) {
